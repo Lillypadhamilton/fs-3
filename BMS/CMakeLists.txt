@@ -26,11 +26,23 @@ add_subdirectory(lib-mbed-ltc681x)
 project(BMS) # TODO: change this to your project name
 
 add_executable(BMS main.cpp
-        
+		src/BmsConfig.h
+		src/BmsThread.h
+		src/BmsThread.cpp
+		src/Can.cpp
+		src/Can.h
+		src/Event.h
+		src/LTC681xBus.cpp
+		src/LTC681xChainBus.cpp
+		src/LTC681xParallelBus.cpp
+		src/LTC6811.cpp
+		src/LTC6811.h
+
+
 )
-target_link_libraries(BMS 
-	mbed-os
-	lib-mbed-ltc681x
+target_link_libraries(BMS
+		mbed-os
+		lib-mbed-ltc681x
 ) # Can also link to mbed-baremetal here
 mbed_set_post_build(BMS) # Must call this for each target to set up bin file creation, code upload, etc
 
